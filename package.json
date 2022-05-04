@@ -1,0 +1,15 @@
+{
+  "name": "wordletordle",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "bin": {
+    "wordletordle": "main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "input": "^1.0.1"
+  }
+}

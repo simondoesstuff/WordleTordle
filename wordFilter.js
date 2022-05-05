@@ -21,13 +21,13 @@ function sortByFrequency(list) {
     });
 }
 
-export function generatePossibilities(blacklistLetters, containsLetters, subsetLetters) {
+export function generatePossibilities(blacklistLetters, containsLetters, subsetLetters, antiSubsetLetters) {
     return sortByFrequency(wordList).filter(word => {
         const letters = word.split("");
 
         return blacklistLetters.every(letter => !letters.includes(letter)) &&
             containsLetters.every(letter => letters.includes(letter)) &&
-                (letters.every((letter, index) =>
-                    (subsetLetters[index] === undefined || subsetLetters[index] === letter)));
+            (letters.every((letter, index) => (subsetLetters[index] === undefined || subsetLetters[index] === letter))) &&
+            (letters.every((letter, index) => (antiSubsetLetters[index] === undefined || antiSubsetLetters[index] !== letter)));
     });
 }

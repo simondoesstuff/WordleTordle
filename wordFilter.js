@@ -29,7 +29,7 @@ export function generatePossibilities(blacklistLetters, containsLetters, subsetL
     // contains takes third precedence
     // blacklist takes fourth precedence
 
-    blacklistLetters.filter(letter => !containsLetters.includes(letter));
+    blacklistLetters = blacklistLetters.filter(letter => !containsLetters.includes(letter) && !subsetLetters.includes(letter));
 
     return sortByFrequency(wordList).filter(word => {
         const letters = word.split("");

@@ -21,7 +21,16 @@ function sortByFrequency(list) {
     });
 }
 
+
+// todo doesnt account for "double letters"
 export function generatePossibilities(blacklistLetters, containsLetters, subsetLetters, antiSubsetLetters) {
+    // pro subset takes first precedence
+    // anti subset takes second precedence
+    // contains takes third precedence
+    // blacklist takes fourth precedence
+
+    blacklistLetters.filter(letter => !containsLetters.includes(letter));
+
     return sortByFrequency(wordList).filter(word => {
         const letters = word.split("");
 
